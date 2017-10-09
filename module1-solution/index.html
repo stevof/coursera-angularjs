@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     <style>
       .message { font-size: 1.3em; font-weight: bold; }
+      .message-valid { color: #008000; border-color: #008000;}
+      .message-invalid { color: #ff0000; border-color: #ff0000;}
+      .input-valid { border-color: #008000;}
+      .input-invalid { border-color: #ff0000;}
     </style>
   </head>
   <body>
@@ -17,13 +21,13 @@
           <!-- Note: we do not count empty items toward the total allowed -->
           <input id="lunch-menu" type="text"
               placeholder="list comma separated dishes you usually have for lunch"
-              class="form-control"
+              class="form-control {{inputStyle}}"
               ng-model="dishes">
         </div>
         <div class="form-group">
           <button class="btn btn-default" ng-click="checkDishes()">Check If Too Much</button>
         </div>
-        <div class="form-group message">
+        <div class="form-group message {{messageStyle}}">
           {{message}}
         </div>
     </div>
