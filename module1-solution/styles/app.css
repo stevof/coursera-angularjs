@@ -1,0 +1,5 @@
+.message { font-size: 1.3em; font-weight: bold; }
+.message-valid { color: #008000; border-color: #008000;}
+.message-invalid { color: #ff0000; border-color: #ff0000;}
+.input-valid { border-color: #008000;}
+.input-invalid { border-color: #ff0000;}

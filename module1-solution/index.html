@@ -3,16 +3,10 @@
   <head>
     <title>Lunch Checker</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="angular.min.js"></script>
-    <script src="app.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js" defer></script>
+    <script src="scripts/app.js" defer></script>
     <link rel="stylesheet" href="styles/bootstrap.min.css">
-    <style>
-      .message { font-size: 1.3em; font-weight: bold; }
-      .message-valid { color: #008000; border-color: #008000;}
-      .message-invalid { color: #ff0000; border-color: #ff0000;}
-      .input-valid { border-color: #008000;}
-      .input-invalid { border-color: #ff0000;}
-    </style>
+    <link rel="stylesheet" href="styles/app.css">
   </head>
   <body>
     <div class="container" ng-controller="LunchCheckController">
@@ -21,13 +15,14 @@
           <!-- Note: we do not count empty items toward the total allowed -->
           <input id="lunch-menu" type="text"
               placeholder="list comma separated dishes you usually have for lunch"
-              class="form-control {{inputStyle}}"
-              ng-model="dishes">
+              class="form-control"
+              ng-model="dishes" ng-class="inputStyle">
+          <span>(We won't count empty items in your list)</span>
         </div>
         <div class="form-group">
           <button class="btn btn-default" ng-click="checkDishes()">Check If Too Much</button>
         </div>
-        <div class="form-group message {{messageStyle}}">
+        <div class="form-group message" ng-class="messageStyle">
           {{message}}
         </div>
     </div>
