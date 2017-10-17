@@ -17,8 +17,17 @@
     toBuy.itemCount = 0;
 
     toBuy.addItem = function () {
-      ShoppingListCheckOffService.addItem(toBuy.itemName, toBuy.itemQuantity);
-      toBuy.itemCount++;
+      if (toBuy.itemName != "" && toBuy.itemQuantity != "") {
+        ShoppingListCheckOffService.addItem(toBuy.itemName, toBuy.itemQuantity);
+        toBuy.itemCount++;
+        toBuy.itemName = "";
+        toBuy.itemQuantity = "";
+      }
+    }
+
+    toBuy.removeItem = function (index) {
+      ShoppingListCheckOffService.removeItemToBuy(index);
+      toBuy.itemCount--;
     }
 
     toBuy.getItems = function () {
@@ -66,6 +75,10 @@
         quantity: quantity
       };
       toBuyList.push(item);
+    }
+
+    service.removeItemToBuy = function (index) {
+      toBuyList.splice(index, 1);
     }
 
     service.getToBuyList = function () {
